@@ -12,18 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"
             integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/regular.min.css"
-          integrity="sha512-EbT6icebNlvxlD4ECiLvPOVBD0uQdt4pHRg8Gpkfirdu9W8l2rtRZO8rThjqeIK08ubcFeiFKHbek7y+lEbWIQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/fontawesome.min.css"
-          integrity="sha512-R+xPS2VPCAFvLRy+I4PgbwkWjw1z5B5gNDYgJN5LfzV4gGNeRQyVrY7Uk59rX+c8tzz63j8DeZPLqmXvBxj8pA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/svg-with-js.min.css"
-          integrity="sha512-YhTJO2S6UzEZDGOYCBmb5KMqKnvix8bVnI2NKJmLXdp8UTPOnU2aBXQI2w3p6K0zjvYdpqZXNXVEwxo37PGAOQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/regular.min.js"
-            integrity="sha512-tniEMPtb6i8oNX19RVx075Km+lJ1dJSrHjvsqZ5VZUAqffgx91Z0ahb6r2nP13+l9zT5RzpxcC1VPdMQswVosw=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -85,13 +73,33 @@
         }
 
         .side-bar ul {
-            position: sticky;
+            position: fixed;
             top: 100px;
         }
 
         .card {
             background-color: #f5dcad;
             border-radius: 30px;
+        }
+
+        #sidebarbtn {
+            display: inline-flex;
+            cursor: pointer;
+            height: auto;
+            min-width: auto;
+            position: fixed;
+            left: 40px;
+            top: 200px;
+            width: 8px;
+            border-radius: 10px;
+        }
+
+        .sidebarbtn {
+            left: 10px !important;
+        }
+
+        .side-open-parent {
+            width: 0px;
         }
 
         @media screen and (max-width: 990px) {
@@ -108,12 +116,16 @@
                 display: none;
             }
 
-            .side-bar ul {
-                float: left;
-            }
-
             .main-menu {
                 width: 90vw;
+            }
+
+            .side-bar {
+                display: none;
+            }
+
+            #sidebarbtn {
+                left: 20px;
             }
         }
 
@@ -179,34 +191,35 @@
     </nav>
     <!-- left side bar-->
     <div class="row">
-        <div class="d-flex flex-column flex-shrink-0 bg-light col-12 mt-5 col-md-1 side-bar" style="width:0px;">
-            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center side-icon">
+        <div class="side-bar " style="width:10px;">
+            <ul class="nav flex-column  text-center side-icon">
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link  py-3 border-bottom rounded-pill" aria-current="page"
+                    <a href="#" class="nav-link   border-bottom rounded-pill" aria-current="page"
                        data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home">
                         <i class="fa-solid fa-house-chimney"></i>
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link  py-3 border-bottom rounded-pill" aria-current="page"
+                    <a href="#" class="nav-link mt-3 border-bottom rounded-pill" aria-current="page"
                        data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home">
                         <i class="fa fa-chart-pie"></i>
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link  py-3 border-bottom rounded-pill" aria-current="page"
+                    <a href="#" class="nav-link  mt-3 border-bottom rounded-pill" aria-current="page"
                        data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home">
                         <i class="fa-regular fa-calendar"></i>
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link  py-3 border-bottom rounded-pill" aria-current="page"
+                    <a href="#" class="nav-link  mt-3 border-bottom rounded-pill" aria-current="page"
                        data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home">
                         <i class="fa fa-gear"></i>
                     </a>
                 </li>
             </ul>
         </div>
+        <button class="btn" id="sidebarbtn"><i class="fa fa-caret-right"></i></button>
         <!-- main menu -->
         <div class="main-menu col-md-11 col-12 ms-5 p-4">
             <div class="row">
@@ -495,9 +508,37 @@
         </div>
     </div>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('#sidebarbtn').click(function () {
+        if ($('.side-bar ul').css('display') == 'none') {
+            $('.side-bar ul').css('display', 'block');
+        } else {
+            $('.side-bar ul').css('display', 'none');
+        }
+        $('.side-bar ul').toggle('.side-open');
+        $('.side-bar').toggle('.side-open-parent');
+        if ($('#sidebarbtn').css('left') == '10px') {
+            winWidth = $(window).width();
+            if (winWidth<990){
+                $('#sidebarbtn').css('left', '20px');
+            }
+            else
+            {
+                $('#sidebarbtn').css('left', '40px');
+            }
+
+
+        } else {
+            $('#sidebarbtn').css('left', '10px');
+        }
+
+    });
+</script>
 </body>
 </html>
