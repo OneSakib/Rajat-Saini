@@ -117,7 +117,7 @@
             }
 
             .main-menu {
-                width: 90vw;
+                width: 100vw;
             }
 
             .side-bar {
@@ -131,7 +131,7 @@
 
         @media screen and (max-width: 768px) {
             .main-menu {
-                width: 80vw;
+                width: 91vw;
             }
         }
     </style>
@@ -525,11 +525,9 @@
         $('.side-bar').toggle('.side-open-parent');
         if ($('#sidebarbtn').css('left') == '10px') {
             winWidth = $(window).width();
-            if (winWidth<990){
+            if (winWidth < 990) {
                 $('#sidebarbtn').css('left', '20px');
-            }
-            else
-            {
+            } else {
                 $('#sidebarbtn').css('left', '40px');
             }
 
