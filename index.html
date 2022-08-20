@@ -139,6 +139,7 @@
 
             .main-menu {
                 width: 95vw;
+                margin-left: 10px;
             }
 
             .side-bar {
@@ -214,10 +215,11 @@
             </div>
         </div>
     </nav>
-    <!-- left side bar-->
+    <!--    Main Body-->
     <div class="row">
-        <div class="side-bar" style="width:50px;">
-            <ul class="nav flex-column  text-center side-icon">
+        <!-- left side bar-->
+        <div class="side-bar col-1" style="width:30px;">
+            <ul class="nav flex-column text-center side-icon">
                 <li class="nav-item mb-2">
                     <a href="#" class="nav-link   border-bottom rounded-pill" aria-current="page"
                        data-bs-toggle="tooltip" data-bs-title="Home">
@@ -248,7 +250,7 @@
             <i
                     class="fa fa-caret-right"></i></button>
         <!-- main menu -->
-        <div class="main-menu col-md-11 col-12 ms-3 p-4">
+        <div class="main-menu col-md-11 col-11 p-4">
             <div class="row">
                 <h3 class="col-6">Notes</h3>
                 <h5 class="col-md-6 text-end">11/08/2022-11:17:18</h5>
@@ -1484,22 +1486,12 @@
     $('#sidebarbtn').click(function () {
         if ($('.side-bar').css('display') == 'none') {
             $('.main-menu').css('width', '85vw');
+            $('.main-menu').css('margin-left', '60px');
             $('.side-bar').show();
         } else {
             $('.main-menu').css('width', '95vw');
+            $('.main-menu').css('margin-left', '5px');
             $('.side-bar').hide();
-        }
-        if ($('#sidebarbtn').css('left') == '10px') {
-            winWidth = $(window).width();
-            if (winWidth < 990) {
-                $('#sidebarbtn').css('left', '20px');
-            } else {
-                $('#sidebarbtn').css('left', '40px');
-            }
-
-
-        } else {
-            $('#sidebarbtn').css('left', '1px');
         }
 
     });
